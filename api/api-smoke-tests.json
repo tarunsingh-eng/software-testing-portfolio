@@ -17,13 +17,14 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"UserId is correct\", () => {\r",
+							"pm.test(\"Query param foo exists\", () => {\r",
 							"    const json = pm.response.json();\r",
-							"    pm.expect(json.userId).to.eql(1);\r",
+							"    pm.expect(json.args.foo).to.eql(\"bar\");\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Title exists\", () => {\r",
-							"    pm.expect(pm.response.json().title).to.be.a(\"string\");\r",
+							"pm.test(\"Response has headers\", () => {\r",
+							"    const json = pm.response.json();\r",
+							"    pm.expect(json.headers).to.be.an(\"object\");\r",
 							"});\r",
 							""
 						],
@@ -37,16 +38,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://jsonplaceholder.typicode.com/posts/1",
+					"raw": "https://postman-echo.com/get?foo=bar",
 					"protocol": "https",
 					"host": [
-						"jsonplaceholder",
-						"typicode",
+						"postman-echo",
 						"com"
 					],
 					"path": [
-						"posts",
-						"1"
+						"get"
+					],
+					"query": [
+						{
+							"key": "foo",
+							"value": "bar"
+						}
 					]
 				}
 			},
