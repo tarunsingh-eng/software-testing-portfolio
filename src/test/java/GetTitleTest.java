@@ -11,7 +11,16 @@ public class GetTitleTest {
 
     @Test
     public void verifyTitle() {
-        WebDriver driver = new ChromeDriver ();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments(
+        "--headless=new",
+        "--no-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-gpu"
+        );
+
+        WebDriver driver = new ChromeDriver(options);
+
         
         driver.get("http://example.com");
 
@@ -23,3 +32,4 @@ public class GetTitleTest {
         driver.quit();
     }
 }
+
