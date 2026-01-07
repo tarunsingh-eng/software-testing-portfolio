@@ -22,7 +22,7 @@ public class GetTitleTest {
 
         WebDriver driver = new ChromeDriver (options);
         
-        driver.get("https://tarunsingh.co.in/");
+        driver.get("https://example.com/");
 
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.titleContains("Example"));
 
