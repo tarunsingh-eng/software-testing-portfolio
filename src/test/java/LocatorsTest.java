@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -12,10 +13,17 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class LocatorsTest{
     
+    
    //  public static void main(String[] args) {
     @Test
     public void locatortestcases(){
-
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments(
+                "--headless=new",
+                "--no-sandbox",
+                "--disable-dev-shm-usage",
+                "--disable-gpu"
+        );
             WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver();
 
