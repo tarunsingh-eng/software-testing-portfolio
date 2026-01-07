@@ -27,7 +27,7 @@ jobs:
         run: npm install -g newman
 
       - name: Run API Tests
-        run: newman run api/api-smoke-tests.json
+        run: newman run src/test/api/api-smoke-tests.json
 
       - name: Run Selenium Tests
         run: mvn test
