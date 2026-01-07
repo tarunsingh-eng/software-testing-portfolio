@@ -11,12 +11,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class LocatorsTest{
+public class InvalidLoginTest{
     
     
    //  public static void main(String[] args) {
     @Test
-    public void locatortestcases(){
+    public void InvalidLoginTest(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments(
                 "--headless=new",
