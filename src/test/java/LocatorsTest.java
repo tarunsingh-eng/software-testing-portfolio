@@ -25,7 +25,7 @@ public class LocatorsTest{
                 "--disable-gpu"
         );
             WebDriverManager.chromedriver().setup();
-            WebDriver driver = new ChromeDriver();
+            WebDriver driver = new ChromeDriver(options);
 
             driver.get("https://rahulshettyacademy.com/locatorspractice/");
            // driver.findElement(By.id("inputUsername")).sendKeys("rahul");
