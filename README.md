@@ -3,11 +3,10 @@
 ## Tech Stack
 - Selenium Java + JUnit4 + POM
 - GitHub Actions CI/CD
-- ExtentReports
 
 ## Run Tests
 `mvn clean test`
 
 ## Features
-- UI tests on Rahul Shetty sites
+- UI, login and E-commerce tests using Selenium
 - API smoke tests
