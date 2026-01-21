@@ -1,5 +1,8 @@
 name: Automation Pipeline
 
+permissions:
+  contents: write
+
 on:
   push:
   pull_request:
@@ -11,6 +14,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -38,13 +43,13 @@ jobs:
         run: node src/test/api/loadTest.js
 
       - name: Commit report to repo
-        if: github.event_name == 'push'
+        if: github.ref == 'refs/heads/main'   # only run on pushes to main
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add docs/index.html
-          git diff --cached --quiet || git commit -m "Update load test report"
-          git push
+          git diff --staged --quiet || git commit -m "Update load test report"
+          git push origin HEAD:main
           
       - name: Run Selenium Tests
         run: mvn test
