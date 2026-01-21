@@ -36,7 +36,7 @@ async function runLoadTest() {
 }
 
 function generateHtmlReport(results) {
-  const path = './reports/report.html';
+  const path = './docs/index.html';
 
   // Calculate aggregated stats
   const totalRequests = results.reduce((sum, r) => sum + r.requests, 0);
