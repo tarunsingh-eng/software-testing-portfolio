@@ -37,7 +37,7 @@ jobs:
       - name: Run Load Tests
         run: node src/test/api/loadTest.js
 
-       - name: Commit report to repo
+      - name: Commit report to repo
         if: github.event_name == 'push'
         run: |
           git config user.name "github-actions"
