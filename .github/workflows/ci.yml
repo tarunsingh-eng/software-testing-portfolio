@@ -28,12 +28,16 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Newman
-        run: npm install newman
+      - name: Install Node dependencies
+        run: |
+          npm install newman xml2js
 
       - name: Run API Smoke Tests
-        run: newman run src/test/api/api-smoke-tests.json
-  
+        run: |
+          newman run src/test/api/api-smoke-tests.json \
+            --reporters json \
+            --reporter-json-export docs/smoke-report.json
+
       - name: Start Test API Server
         run: |
           node server.js &
@@ -42,14 +46,17 @@ jobs:
       - name: Run Load Tests
         run: node src/test/api/loadTest.js
 
+      - name: Run Selenium Tests
+        run: mvn test
+
+      - name: Build unified report
+        run: node src/test/resources/buildReport.js
+
       - name: Commit report to repo
-        if: github.ref == 'refs/heads/main'   # only run on pushes to main
+        if: github.ref == 'refs/heads/main'
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add docs/index.html
-          git diff --staged --quiet || git commit -m "Update load test report"
+          git diff --staged --quiet || git commit -m "Update QA automation report"
           git push origin HEAD:main
-          
-      - name: Run Selenium Tests
-        run: mvn test
