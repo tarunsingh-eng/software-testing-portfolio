@@ -10,7 +10,7 @@ async function runLoadTest() {
 
     await new Promise((resolve, reject) => {
       newman.run({
-        collection: './postman/collection.json',
+        collection: './src/test/resources/postman/collection.json',
         reporters: 'cli'
       }, function (err, summary) {
         if (err) return reject(err);
