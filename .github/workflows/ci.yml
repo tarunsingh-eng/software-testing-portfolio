@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: load-test-reports
-          path: reports/
+          path: docs/
           
       - name: Run Selenium Tests
         run: mvn test
