@@ -24,9 +24,9 @@ jobs:
           node-version: 18
 
       - name: Install Newman
-        run: npm install -g newman
+        run: npm install newman
 
-      - name: Run API Tests
+      - name: Run API Smoke Tests
         run: newman run src/test/api/api-smoke-tests.json
   
       - name: Start Test API Server
@@ -35,7 +35,7 @@ jobs:
           sleep 3
 
       - name: Run Load Tests
-        run: node loadTest.js
+        run: node src/test/api/loadTest.js
 
       - name: Upload Load Test Reports
         if: always()
