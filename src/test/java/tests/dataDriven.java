@@ -19,7 +19,7 @@ public class dataDriven {
 		ArrayList<String> a = new ArrayList<String>();
 
 		FileInputStream fis = new FileInputStream(
-				"C://Users//tarun//eclipse-workspace//Introduction//src//TestData.xlsx");
+				"src/test/resources/TestData.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		int sheets = workbook.getNumberOfSheets();
 		for (int i = 0; i < sheets; i++) {
@@ -63,3 +63,4 @@ public class dataDriven {
 	}
 
 }
+
