@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 
-public class ECommerce {
+public class ECommerceTest {
 
 	public static void main(String[] args) throws Exception {
 		ChromeOptions options = new ChromeOptions();
@@ -37,3 +37,4 @@ public class ECommerce {
 	}
 	
 }
+
