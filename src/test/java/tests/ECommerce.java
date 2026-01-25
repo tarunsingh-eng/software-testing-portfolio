@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
-public class ECommerce {
+public class ECommerceTest {
 
 	@Test
 	public void addItemsToCart() throws Exception {
@@ -40,4 +40,5 @@ public class ECommerce {
 		driver.quit();
 	}
 	
+
 }
