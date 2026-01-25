@@ -12,20 +12,40 @@ const smokeStats = smoke.run.stats.tests;
 // ---------- SELENIUM ----------
 async function readSeleniumResults() {
   const dir = 'target/surefire-reports';
+
+  if (!fs.existsSync(dir)) {
+    return { total: 0, failed: 0 };
+  }
+
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.xml'));
 
-  let total = 0, failed = 0;
+  let total = 0;
+  let failed = 0;
 
   for (const file of files) {
-    const xml = fs.readFileSync(path.join(dir, file));
+    const xml = fs.readFileSync(path.join(dir, file), 'utf-8');
     const result = await xml2js.parseStringPromise(xml);
-    const suite = result.testsuite.$;
-    total += parseInt(suite.tests);
-    failed += parseInt(suite.failures);
+
+    // JUnit format safety
+    let suites = [];
+
+    if (result.testsuite) {
+      suites = [result.testsuite];
+    } else if (result.testsuites && result.testsuites.testsuite) {
+      suites = result.testsuites.testsuite;
+    }
+
+    for (const suite of suites) {
+      if (!suite.$) continue;
+
+      total += Number(suite.$.tests || 0);
+      failed += Number(suite.$.failures || 0);
+    }
   }
 
   return { total, failed };
 }
+
 
 (async () => {
   const selenium = await readSeleniumResults();
