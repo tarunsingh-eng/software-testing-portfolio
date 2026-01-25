@@ -33,7 +33,7 @@ async function runLoadTest() {
   }
   
 fs.writeFileSync(
-  './docs/load-data.json',
+  'docs/load-data.json',
   JSON.stringify(allResults, null, 2)
 );
 
@@ -445,3 +445,4 @@ runLoadTest().catch(err => {
   console.error('Load test failed:', err);
   process.exit(1);
 });
+
