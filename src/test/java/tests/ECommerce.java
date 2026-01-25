@@ -1,5 +1,6 @@
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -20,22 +21,23 @@ public class ECommerce {
 		
 		
 		WebDriverManager.chromedriver().setup();
-		ChromeDriver driver = new ChromeDriver(options);
+		WebDriver driver = new ChromeDriver(options);
 		
 		driver.get("https://www.saucedemo.com/");
 		Thread.sleep(3000);
 		driver.manage().window().maximize();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys("standard_user");
-		System.out.print("Username Entered ");
+		System.out.println("Username Entered ");
 		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("secret_sauce");
-		System.out.print("Password Entered ");
+		System.out.println("Password Entered ");
 		//Thread.sleep(3000);
 		driver.findElement(By.xpath("//input[@id='login-button']")).click();
-		System.out.print("Login Started ");
+		System.out.println("Login Started ");
 		Thread.sleep(5000);
-        driver.findElement(By.cssSelector("#add-to-cart-sauce-labs-bike-light")).click(); // Simpler selector
+        driver.findElement(By.cssSelector("#add-to-cart-sauce-labs-bike-light")).click(); 
         System.out.println("Item Added ");
+		driver.quit();
 	}
 	
 }

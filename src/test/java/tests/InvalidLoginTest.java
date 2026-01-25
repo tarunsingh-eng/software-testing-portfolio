@@ -17,13 +17,13 @@ public class InvalidLoginTest{
    //  public static void main(String[] args) {
     @Test
     public void InvalidLoginTest(){
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments(
+          ChromeOptions options = new ChromeOptions();
+          options.addArguments(
                 "--headless=new",
                 "--no-sandbox",
                 "--disable-dev-shm-usage",
                 "--disable-gpu"
-        );
+             );
             WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver(options);
 
@@ -40,6 +40,7 @@ public class InvalidLoginTest{
                 ).getText();
             Assert.assertEquals("* Incorrect username or password", error);
             System.out.println(error);
+            driver.quit();
         
     }
 }
