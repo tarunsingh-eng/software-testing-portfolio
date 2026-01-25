@@ -51,6 +51,11 @@
       <artifactId>maven-surefire-plugin</artifactId>
       <version>3.5.2</version>
       <configuration>
+            <providers>
+             <provider>
+               <name>junit</name>
+            </provider>
+           </providers>
         <printSummary>true</printSummary>
         <reportFormat>brief</reportFormat>
         <useFile>false</useFile>
@@ -61,6 +66,7 @@
 </build>
 
 </project>
+
 
 
 
