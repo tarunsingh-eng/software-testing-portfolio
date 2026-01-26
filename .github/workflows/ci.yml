@@ -35,12 +35,13 @@ jobs:
 
       - name: Run API Smoke Tests
         run: |
-            newman run src/test/api/api-smoke-tests.json \
+           npx newman run src/test/api/api-smoke-tests.json \
             --reporters cli,json,htmlextra \
             --reporter-json-export docs/smoke-report.json \
             --reporter-htmlextra-export docs/smoke-report.html \
             --color on \
             --verbose
+
 
 
       - name: Start Test API Server
