@@ -27,9 +27,7 @@ public class ForgetPasswordTest{
             Thread.sleep(3000);
             driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
             System.out.println("Password was reset");
-            Thread.sleep(3000);
             driver.quit();
             
     }
-
 }
