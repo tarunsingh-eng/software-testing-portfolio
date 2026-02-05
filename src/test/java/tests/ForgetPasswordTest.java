@@ -26,7 +26,7 @@ public class ForgetPasswordTest{
             driver.findElement(By.cssSelector("input[placeholder='Phone Number']")).sendKeys("1-000-111-222");
             Thread.sleep(3000);
             driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
-            System.out.println("Password was reset");
+            System.out.println("Password was successful");
             driver.quit();
             
     }
