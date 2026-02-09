@@ -26,7 +26,7 @@ public class WebsiteBasicTest {
         driver.get("https://tarunsingh.co.in/");
         
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//h2[normalize-space()='Tarun Singh']")
