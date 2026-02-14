@@ -76,7 +76,7 @@ public class ECommerceTest {
 		driver.findElement(By.id("last-name")).sendKeys("Account1"); 
 		driver.findElement(By.cssSelector("#postal-code")).sendKeys("45454"); 
 		driver.findElement(By.cssSelector("#continue")).click();
-		System.out.println("Information added");
+		System.out.println("Information-added");
 		driver.findElement(By.cssSelector("#finish")).click(); 
 		System.out.println("Checkout-successful");
 		driver.quit();
