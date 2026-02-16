@@ -28,7 +28,7 @@ public class HomePageTitleTest {
 
         String title = driver.getTitle();
         //Assert.assertTrue(title.contains("example"));
-        Assert.assertEquals("Example-Domain", title);
+        Assert.assertEquals("ExampleDomain", title);
         driver.quit();
     }
 }
