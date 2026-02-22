@@ -1,4 +1,6 @@
-package test.java.test;
+package tests;
+
+//package test.java.test;
 
 import java.io.FileInputStream;
 import java.io.IOException;

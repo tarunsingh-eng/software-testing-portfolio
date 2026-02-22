@@ -1,4 +1,5 @@
-package test.java.test;
+package tests;
+//package test.java.test;
 
 import java.io.IOException;
 import java.time.Duration;

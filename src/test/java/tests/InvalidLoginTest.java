@@ -1,3 +1,4 @@
+package tests;
 import java.time.Duration;
 
 import org.junit.Assert;

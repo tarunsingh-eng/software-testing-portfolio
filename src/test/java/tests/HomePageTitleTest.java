@@ -1,3 +1,4 @@
+package tests;
 import java.time.Duration;
 
 import org.junit.Assert;
@@ -28,7 +29,7 @@ public class HomePageTitleTest {
 
         String title = driver.getTitle();
         //Assert.assertTrue(title.contains("example"));
-        Assert.assertEquals("ExampleDomain", title);
+        Assert.assertEquals("Example Domain", title);
         driver.quit();
     }
 }
