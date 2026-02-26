@@ -4,18 +4,17 @@ package tests;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
+
+import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-//import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.Test;
-import org.junit.Assert;
 
 
 public class DataDrivenLoginTest {
@@ -34,7 +33,7 @@ public class DataDrivenLoginTest {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver(options);
 		
-		dataDriven d = new dataDriven();
+		DataDriven d = new DataDriven();
 		ArrayList data = d.getData("Login");
 		
 		// while (n < data.size()) {
@@ -72,7 +71,7 @@ public class DataDrivenLoginTest {
 		WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver(options);
 		
-		dataDriven d = new dataDriven();
+		DataDriven d = new DataDriven();
 		
 		ArrayList data2 = d.getData("Invalid Login"); 
        // Invalid Login Test Case 
