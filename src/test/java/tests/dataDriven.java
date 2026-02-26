@@ -14,11 +14,11 @@ import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class dataDriven {
+public class DataDriven {
 
 	public ArrayList<String> getData(String testcaseName) throws IOException {
 
-		ArrayList<String> a = new ArrayList<String>();
+		ArrayList<String> a = new ArrayList<>();
 
 		FileInputStream fis = new FileInputStream(
 				"src/test/resources/TestData.xlsx");
