@@ -9,4 +9,8 @@
 
 ## Features
 - UI, login and E-commerce tests using Selenium
-- API smoke tests
+- API smoke and load tests
+- Cucumber feature BDD tests
+
+## View Unified report : 
+- https://tarunsingh-eng.github.io/software-testing-portfolio/
