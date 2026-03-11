@@ -10,9 +10,8 @@ import io.cucumber.junit.CucumberOptions;
     glue = "tests.cucumber.stepdefinitions",
     plugin = {
         "pretty", 
-        "html:target/cucumber-report.html",
-        "junit:target/surefire-reports/cucumber.xml"
-        }
+        "html:target/cucumber-report.html"
+       }
 )
 
 public class TestRunner {
