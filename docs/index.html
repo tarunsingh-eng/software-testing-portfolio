@@ -2,90 +2,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <title>QA Automation Dashboard</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont;
-      background: #f6f8fa;
-      padding: 40px;
-    }
-    h1 {
-      margin-bottom: 30px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #fff;
-      padding: 24px;
-      border-radius: 10px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    }
-    .metric {
-      font-size: 32px;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-    .label {
-      color: #57606a;
-      margin-top: 6px;
-    }
-    .ok {
-      color: #2da44e;
-    }
-    .fail {
-      color: #cf222e;
-    }
-    footer {
-      margin-top: 40px;
-      color: #57606a;
-      font-size: 14px;
-    }
-  </style>
+<meta charset="UTF-8" />
+<title>QA Automation Dashboard</title>
+
+<style>
+body {
+  font-family: system-ui;
+  background: #f6f8fa;
+  padding: 40px;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.metric {
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.label {
+  color: #57606a;
+  margin-top: 6px;
+}
+
+.ok {
+  color: #2da44e;
+}
+
+.fail {
+  color: #cf222e;
+}
+
+footer {
+  margin-top: 40px;
+  color: #57606a;
+  font-size: 14px;
+}
+</style>
+
 </head>
+
 <body>
 
 <h1> QA Automation Dashboard</h1>
 
 <div class="grid">
 
-  <div class="card">
-    <h2>API Smoke Tests</h2>
-    <div class="metric">10</div>
-    <div class="label">Total Tests</div>
-    <div class="metric ok">
-      0
-    </div>
-    <div class="label">Failures</div>
-  </div>
+<div class="card">
+<h2>API Smoke Tests</h2>
+<div class="metric">10</div>
+<div class="label">Total Tests</div>
+<div class="metric ok">0</div>
+<div class="label">Failures</div>
+</div>
 
-  <div class="card">
-    <h2>API Load Tests</h2>
-    <div class="metric">10</div>
-    <div class="label">Total Runs</div>
-    <div class="metric">28 ms</div>
-    <div class="label">Average Response</div>
-  </div>
+<div class="card">
+<h2>API Load Tests</h2>
+<div class="metric">10</div>
+<div class="label">Total Runs</div>
+<div class="metric">22 ms</div>
+<div class="label">Average Response</div>
+</div>
 
-  <div class="card">
-    <h2>Selenium UI Tests</h2>
-    <div class="metric">9</div>
-    <div class="label">Total Tests</div>
-    <div class="metric ok">
-      0
-    </div>
-    <div class="label">Failures</div>
-    <div class="metric ok">100%</div>
-    <div class="label">Pass Rate</div>
-  </div>
+<div class="card">
+<h2>Selenium UI Tests</h2>
+<div class="metric">7</div>
+<div class="label">Total Tests</div>
+<div class="metric ok">0</div>
+<div class="label">Failures</div>
+<div class="metric ok">100%</div>
+<div class="label">Pass Rate</div>
+</div>
+
+<div class="card">
+<h2>Cucumber BDD Scenarios</h2>
+<div class="metric">2</div>
+<div class="label">Total Scenarios</div>
+<div class="metric ok">0</div>
+<div class="label">Failures</div>
+<div class="metric ok">100%</div>
+<div class="label">Pass Rate</div>
+</div>
 
 </div>
 
 <footer>
-  Generated on 3/11/2026, 10:56:55 AM
+Generated on 3/11/2026, 11:04:23 AM
 </footer>
 
 </body>
