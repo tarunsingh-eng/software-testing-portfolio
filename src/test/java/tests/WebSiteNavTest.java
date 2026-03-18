@@ -24,14 +24,17 @@ public class WebSiteNavTest{
                     "--window-size=1920,1080",
                     "--disable-dev-shm-usage"
             );
+            options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/115 Safari/537.36");
 
            // WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver(options);
+            String token = System.getProperty("cfTestToken");
+
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
             //JavascriptExecutor js = (JavascriptExecutor) driver;
             
-            driver.get("https://tarunsingh.co.in");
+            driver.get("https://tarunsingh.co.in/?ci_token=" + token);
             wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
 
         //DEBUG

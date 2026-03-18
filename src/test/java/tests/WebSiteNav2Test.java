@@ -29,9 +29,10 @@ public class WebSiteNav2Test {
 
             WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver(options);
-
+            String token = System.getProperty("cfTestToken");
+         
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
-            driver.get("https://tarunsingh.co.in");
+            driver.get("https://tarunsingh.co.in/?ci_token="+ token);
             JavascriptExecutor js = (JavascriptExecutor) driver;
      
            
@@ -72,9 +73,9 @@ public class WebSiteNav2Test {
 
             WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver(options);
-
+            String token = System.getProperty("cfTestToken");
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
-            driver.get("https://tarunsingh.co.in");
+            driver.get("https://tarunsingh.co.in/?ci_token=" + token);
 
            // JavascriptExecutor js = (JavascriptExecutor) driver;
            // js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);

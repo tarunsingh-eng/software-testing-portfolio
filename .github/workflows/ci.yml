@@ -53,7 +53,7 @@ jobs:
         run: node src/test/api/loadTest.js
 
       - name: Run Selenium Tests
-        run: xvfb-run -a mvn test
+        run: xvfb-run -a mvn test -DcfTestToken="${{ secrets.CF_TEST_TOKEN }}"
     
 
       - name: Build unified report
