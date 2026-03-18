@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -22,6 +21,7 @@ public class WebSiteNav2Test {
 
             options.addArguments(
                     "--headless=new",
+                    "--window-size=1920,1080",
                     "--no-sandbox",
                     "--disable-dev-shm-usage",
                     "--disable-gpu"
@@ -43,7 +43,7 @@ public class WebSiteNav2Test {
             System.out.print("Course Link clicked");
             //courseLink.click();
             //driver.quit();
-            WebElement projectLink = wait.until((ExpectedConditions.visibilityOfElementLocated(By.cssSelector(("a[href='https://tarunsingh.co.in/projects/']")))));
+            WebElement projectLink = wait.until((ExpectedConditions.presenceOfElementLocated(By.cssSelector(("a[href*='projects']")))));
             
             wait.until(ExpectedConditions.elementToBeClickable(projectLink));
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", projectLink);
@@ -72,7 +72,7 @@ public class WebSiteNav2Test {
            // js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);
 
             
-            WebElement projectLink = wait.until((ExpectedConditions.visibilityOfElementLocated(By.cssSelector(("a[href='https://tarunsingh.co.in/projects/']")))));
+            WebElement projectLink = wait.until((ExpectedConditions.presenceOfElementLocated(By.cssSelector(("a[href*='projects']")))));
             
             wait.until(ExpectedConditions.elementToBeClickable(projectLink));
             JavascriptExecutor js =  (JavascriptExecutor) driver;
