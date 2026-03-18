@@ -12,7 +12,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class WebSiteNavTest{
         @Test
@@ -23,30 +22,32 @@ public class WebSiteNavTest{
                     "--headless=new",
                     "--no-sandbox",
                     "--window-size=1920,1080",
-                    "--disable-dev-shm-usage",
-                    "--disable-gpu"
+                    "--disable-dev-shm-usage"
             );
 
-            WebDriverManager.chromedriver().setup();
+           // WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver(options);
-
+        try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
-            driver.get("https://tarunsingh.co.in");
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-      
-            wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
-            js.executeScript("window.scrollBy(0, 3000)");
-            WebElement courseLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href*='courses']")));
+            //JavascriptExecutor js = (JavascriptExecutor) driver;
             
-            wait.until(ExpectedConditions.elementToBeClickable(courseLink));
-            js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);
+            driver.get("https://tarunsingh.co.in");
+            wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
+            //js.executeScript("window.scrollBy(0, 3000)");
+            By courses = By.cssSelector("a[href='/courses/']");
+            WebElement courseLink = wait.until(ExpectedConditions.elementToBeClickable(courses));
+            courseLink.click();
+            //wait.until(ExpectedConditions.urlContains("/courses")).click();
+            //js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);
         
             // course click doesn't work - scolls a bit and then stops
             //better alternative is following command : JavascriptExecutor
-             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", courseLink);
+             //((JavascriptExecutor) driver).executeScript("arguments[0].click();", courseLink);
             // courseLink.click();
             //courseLink.click();
+            wait.until(ExpectedConditions.urlContains("/courses"));
+        } finally {
             driver.quit();
         }
-
+}
 }
