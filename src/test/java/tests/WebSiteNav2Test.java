@@ -26,6 +26,7 @@ public class WebSiteNav2Test {
                     "--disable-dev-shm-usage",
                     "--disable-gpu"
             );
+            options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/115 Safari/537.36");
 
             WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver(options);
@@ -85,7 +86,8 @@ public class WebSiteNav2Test {
                     "--disable-dev-shm-usage",
                     "--disable-gpu"
             );
-
+            options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/115 Safari/537.36");
+            
             WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver(options);
             String token = System.getProperty("cfTestToken");
