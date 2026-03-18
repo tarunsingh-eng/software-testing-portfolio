@@ -33,22 +33,18 @@ public class WebSiteNavTest{
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
             driver.get("https://tarunsingh.co.in");
             JavascriptExecutor js = (JavascriptExecutor) driver;
-            
-            for (int i=0;i < 3; i++) {
-            js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-            Thread.sleep(1000);
-            }
+      
             wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
-            WebElement footer = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("footer-widgets")));
-            WebElement courseLink = footer.findElement(By.cssSelector("a[href*='courses']"));
+            WebElement courseLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[normalize-space()='Courses']")));
             
            
-            js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);
             wait.until(ExpectedConditions.elementToBeClickable(courseLink));
+            js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);
+
             // course click doesn't work - scolls a bit and then stops
             //better alternative is following command : JavascriptExecutor
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", courseLink);
-            //courseLink.click();
+             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", courseLink);
+            // courseLink.click();
             //courseLink.click();
             driver.quit();
         }
