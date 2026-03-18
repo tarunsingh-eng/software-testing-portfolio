@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebSiteNavTest{
         @Test
-        public void SiteNav() throws InterruptedException {
+        public void SiteNav()  {
             ChromeOptions options = new ChromeOptions();
 
             options.addArguments(
@@ -34,15 +34,23 @@ public class WebSiteNavTest{
             driver.get("https://tarunsingh.co.in");
             wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
             //js.executeScript("window.scrollBy(0, 3000)");
-            By courses = By.cssSelector("a[href='/courses/']");
-            WebElement courseLink = wait.until(ExpectedConditions.elementToBeClickable(courses));
-            courseLink.click();
+           // By coursesLink = By.cssSelector("a[href*='courses']");
+            By coursesLink = By.xpath("(//li[@id='menu-item-2815'])[1]/a");
+
+
+            // Debug: countmatches in DOM
+            System.out.println("Courses links found: "+ driver.findElements(coursesLink).size());
+
+          
+
+            WebElement courseLink = wait.until(ExpectedConditions.presenceOfElementLocated(coursesLink));
+            //courseLink.click();
             //wait.until(ExpectedConditions.urlContains("/courses")).click();
             //js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);
         
             // course click doesn't work - scolls a bit and then stops
             //better alternative is following command : JavascriptExecutor
-             //((JavascriptExecutor) driver).executeScript("arguments[0].click();", courseLink);
+             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", courseLink);
             // courseLink.click();
             //courseLink.click();
             wait.until(ExpectedConditions.urlContains("/courses"));

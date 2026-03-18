@@ -37,7 +37,7 @@ public class WebSiteNav2Test {
            
 
             wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
-            WebElement courseLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href*='courses']")));
+            WebElement courseLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//li[@id='menu-item-2815'])[1]/a")));
             
 
             wait.until(ExpectedConditions.elementToBeClickable(courseLink));
@@ -51,7 +51,7 @@ public class WebSiteNav2Test {
            
             js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
             wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
-            WebElement projectLink = driver.findElement(By.cssSelector("a[href*='projects']"));
+            WebElement projectLink = driver.findElement(By.xpath("//li[@id='menu-item-2814'][1]/a"));
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", projectLink);
             wait.until(ExpectedConditions.elementToBeClickable(projectLink));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", projectLink);
@@ -81,7 +81,7 @@ public class WebSiteNav2Test {
             JavascriptExecutor js =  (JavascriptExecutor) driver;
 
             wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
-            WebElement projectLink = driver.findElement(By.cssSelector("a[href*='projects']"));
+            WebElement projectLink = driver.findElement(By.xpath("//li[@id='menu-item-2814'][1]/a"));
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", projectLink);
             wait.until(ExpectedConditions.elementToBeClickable(projectLink));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", projectLink);
