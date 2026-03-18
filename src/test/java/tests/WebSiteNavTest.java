@@ -30,7 +30,7 @@ public class WebSiteNavTest {
             WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver(options);
 
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(55));
             driver.get("https://tarunsingh.co.in");
             JavascriptExecutor js = (JavascriptExecutor) driver;
 
