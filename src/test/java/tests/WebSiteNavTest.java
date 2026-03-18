@@ -39,8 +39,8 @@ public class WebSiteNavTest{
             Thread.sleep(1000);
             }
             wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
-
-            WebElement courseLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='https://tarunsingh.co.in/courses/']")));
+            WebElement footer = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("footer-widgets")));
+            WebElement courseLink = footer.findElement(By.cssSelector("a[href*='courses']"));
             
            
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);

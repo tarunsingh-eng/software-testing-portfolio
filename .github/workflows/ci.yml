@@ -54,6 +54,7 @@ jobs:
 
       - name: Run Selenium Tests
         run: mvn test
+    
 
       - name: Build unified report
         run: node src/test/resources/buildReport.js

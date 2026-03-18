@@ -37,9 +37,12 @@ public class WebSiteNav2Test {
             js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
             Thread.sleep(1000);
             }
-            wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
 
-            WebElement courseLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='https://tarunsingh.co.in/courses/']")));
+           
+
+            wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
+            WebElement footer = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("footer-widgets")));
+            WebElement courseLink = footer.findElement(By.cssSelector("a[href*='courses']"));
 
             wait.until(ExpectedConditions.elementToBeClickable(courseLink));
             // course click doesn't work - scolls a bit and then stops
@@ -52,7 +55,8 @@ public class WebSiteNav2Test {
            
             js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
             wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
-            WebElement projectLink = driver.findElement(By.cssSelector("a[href='https://tarunsingh.co.in/projects/']"));
+            WebElement footer2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("footer-widgets")));
+            WebElement projectLink = footer2.findElement(By.cssSelector("a[href*='projects']"));
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", projectLink);
             wait.until(ExpectedConditions.elementToBeClickable(projectLink));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", projectLink);
@@ -84,8 +88,10 @@ public class WebSiteNav2Test {
             js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
             Thread.sleep(1000);
             }
+            
             wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
-            WebElement projectLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='https://tarunsingh.co.in/projects/']")));
+            WebElement footer = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("footer-widgets")));
+            WebElement projectLink = footer.findElement(By.cssSelector("a[href*='projects/]"));
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", projectLink);
             wait.until(ExpectedConditions.elementToBeClickable(projectLink));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", projectLink);
