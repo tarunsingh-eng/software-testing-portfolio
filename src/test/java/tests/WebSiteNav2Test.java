@@ -40,6 +40,7 @@ public class WebSiteNav2Test {
             // course click doesn't work - scolls a bit and then stops
             //better alternative is following command : JavascriptExecutor
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", courseLink);
+            courseLink.click();
             System.out.print("Course Link clicked");
             //courseLink.click();
             //driver.quit();
@@ -48,6 +49,7 @@ public class WebSiteNav2Test {
             wait.until(ExpectedConditions.elementToBeClickable(projectLink));
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", projectLink);
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", projectLink);
+            projectLink.click();
             System.out.println("project link clicked");
             driver.quit();
         }
@@ -79,6 +81,7 @@ public class WebSiteNav2Test {
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", projectLink);
 
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", projectLink);
+            projectLink.click();
             System.out.println("project link clicked");
             driver.quit();
         }

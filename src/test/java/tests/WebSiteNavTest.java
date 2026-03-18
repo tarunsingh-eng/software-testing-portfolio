@@ -40,6 +40,7 @@ public class WebSiteNavTest {
             // course click doesn't work - scolls a bit and then stops
             //better alternative is following command : JavascriptExecutor
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", courseLink);
+            courseLink.click();
             //courseLink.click();
             driver.quit();
         }
