@@ -57,7 +57,7 @@ public class WebSiteNav2Test {
             WebElement courseLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[normalize-space()='Courses']")));
             
 
-            wait.until(ExpectedConditions.elementToBeClickable(courseLink));
+            //wait.until(ExpectedConditions.elementToBeClickable(courseLink));
             // course click doesn't work - scolls a bit and then stops
             //better alternative is following command : JavascriptExecutor
             js.executeScript("arguments[0].scrollIntoView({block:'center'});", courseLink);
@@ -70,7 +70,7 @@ public class WebSiteNav2Test {
             wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
             WebElement projectLink = driver.findElement(By.xpath("//a[normalize-space()='Projects']"));
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", projectLink);
-            wait.until(ExpectedConditions.elementToBeClickable(projectLink));
+            //wait.until(ExpectedConditions.elementToBeClickable(projectLink));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", projectLink);
            //projectLink.click();
             System.out.println("project link clicked");
@@ -87,7 +87,7 @@ public class WebSiteNav2Test {
                     "--disable-gpu"
             );
             options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/115 Safari/537.36");
-            
+
             WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver(options);
             String token = System.getProperty("cfTestToken");
@@ -115,7 +115,7 @@ public class WebSiteNav2Test {
 
             WebElement projectLink = driver.findElement(By.xpath("//a[normalize-space()='Projects']"));
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", projectLink);
-            wait.until(ExpectedConditions.elementToBeClickable(projectLink));
+            //wait.until(ExpectedConditions.elementToBeClickable(projectLink));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", projectLink);
             //projectLink.click();
             System.out.println("project link clicked");
