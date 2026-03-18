@@ -34,6 +34,8 @@ public class WebSiteNav2Test {
             driver.get("https://tarunsingh.co.in");
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
+            wait.until(d -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
+
             WebElement courseLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Courses")));
 
             wait.until(ExpectedConditions.elementToBeClickable(courseLink));
@@ -44,6 +46,9 @@ public class WebSiteNav2Test {
             System.out.print("Course Link clicked");
             //courseLink.click();
             //driver.quit();
+           
+            js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
+            wait.until(d -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
             WebElement projectLink = driver.findElement(By.linkText("Projects"));
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", projectLink);
             wait.until(ExpectedConditions.elementToBeClickable(projectLink));
@@ -66,16 +71,15 @@ public class WebSiteNav2Test {
             WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver(options);
 
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(55));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
             driver.get("https://tarunsingh.co.in");
 
            // JavascriptExecutor js = (JavascriptExecutor) driver;
            // js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);
             JavascriptExecutor js =  (JavascriptExecutor) driver;
             js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-            
+            wait.until(d -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
             WebElement projectLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Projects")));
-            
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", projectLink);
             wait.until(ExpectedConditions.elementToBeClickable(projectLink));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", projectLink);
