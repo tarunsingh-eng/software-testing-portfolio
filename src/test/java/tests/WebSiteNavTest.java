@@ -14,7 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class WebSiteNav {
+public class WebSiteNavTest {
         @Test
         public void SiteNav() {
             ChromeOptions options = new ChromeOptions();
