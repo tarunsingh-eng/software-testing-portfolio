@@ -35,8 +35,9 @@ public class WebSiteNavTest{
             wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
             //js.executeScript("window.scrollBy(0, 3000)");
            // By coursesLink = By.cssSelector("a[href*='courses']");
-            By coursesLink = By.xpath("(//li[@id='menu-item-2815'])[1]/a");
-
+           By coursesLink = By.xpath("//a[normalize-space()='Courses']");
+          
+        
 
             // Debug: countmatches in DOM
             System.out.println("Courses links found: "+ driver.findElements(coursesLink).size());
