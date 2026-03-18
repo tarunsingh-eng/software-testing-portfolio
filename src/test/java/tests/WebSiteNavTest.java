@@ -33,6 +33,20 @@ public class WebSiteNavTest{
             
             driver.get("https://tarunsingh.co.in");
             wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
+
+        //DEBUG
+        System.out.println("TITLE: " + driver.getTitle());
+        System.out.println("URL: " + driver.getCurrentUrl());
+        String html = driver.getPageSource();
+        System.out.println("HAS_COURSES_TEXT: " + html.contains("Courses"));
+        System.out.println("HAS_CLOUDFLARE: " + html.toLowerCase().contains("cloudflare"));
+        System.out.println("HAS_JUST_A_MOMENT: " + html.toLowerCase().contains("just a moment"));
+        System.out.println("HAS_VERIFY_HUMAN: " + html.toLowerCase().contains("verify you are human"));
+        System.out.println("HAS_ACCESS_DENIED: " + html.toLowerCase().contains("access denied"));
+        //END DEBUG
+
+
+
             //js.executeScript("window.scrollBy(0, 3000)");
            // By coursesLink = By.cssSelector("a[href*='courses']");
            By coursesLink = By.xpath("//a[normalize-space()='Courses']");
