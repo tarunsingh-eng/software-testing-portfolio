@@ -32,7 +32,7 @@ public class WebSiteNav2Test {
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
             driver.get("https://tarunsingh.co.in");
-            WebElement courseLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[href*='courses']")));
+            WebElement courseLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href*='courses']")));
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);
 
