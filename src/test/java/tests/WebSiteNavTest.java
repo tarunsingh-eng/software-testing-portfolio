@@ -36,7 +36,7 @@ public class WebSiteNavTest{
       
             wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
             js.executeScript("window.scrollBy(0, 3000)");
-            WebElement courseLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[normalize-space()='Courses']")));
+            WebElement courseLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href*='courses']")));
             
             wait.until(ExpectedConditions.elementToBeClickable(courseLink));
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);
