@@ -35,12 +35,12 @@ public class WebSiteNavTest{
             JavascriptExecutor js = (JavascriptExecutor) driver;
       
             wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
-            WebElement courseLink = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[normalize-space()='Courses']")));
+            js.executeScript("window.scrollBy(0, 3000)");
+            WebElement courseLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[normalize-space()='Courses']")));
             
-           
             wait.until(ExpectedConditions.elementToBeClickable(courseLink));
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);
-
+        
             // course click doesn't work - scolls a bit and then stops
             //better alternative is following command : JavascriptExecutor
              ((JavascriptExecutor) driver).executeScript("arguments[0].click();", courseLink);
