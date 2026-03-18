@@ -14,9 +14,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class WebSiteNavTest {
+public class WebSiteNavTest{
         @Test
-        public void SiteNav() {
+        public void SiteNav() throws InterruptedException {
             ChromeOptions options = new ChromeOptions();
 
             options.addArguments(
@@ -33,12 +33,14 @@ public class WebSiteNavTest {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
             driver.get("https://tarunsingh.co.in");
             JavascriptExecutor js = (JavascriptExecutor) driver;
-
+            
+            for (int i=0;i < 3; i++) {
             js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+            Thread.sleep(1000);
+            }
+            wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
 
-            wait.until(d -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
-
-            WebElement courseLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href*='courses']")));
+            WebElement courseLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='https://tarunsingh.co.in/courses/']")));
             
            
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);

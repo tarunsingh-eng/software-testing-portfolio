@@ -16,7 +16,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class WebSiteNav2Test {
         @Test
-        public void SiteNavHitCourseLink() {
+        public void SiteNavHitCourseLink() throws InterruptedException {
             ChromeOptions options = new ChromeOptions();
 
             options.addArguments(
@@ -33,10 +33,13 @@ public class WebSiteNav2Test {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
             driver.get("https://tarunsingh.co.in");
             JavascriptExecutor js = (JavascriptExecutor) driver;
+            for (int i=0;i < 3; i++) {
             js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
-            wait.until(d -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
+            Thread.sleep(1000);
+            }
+            wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
 
-            WebElement courseLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Courses")));
+            WebElement courseLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='https://tarunsingh.co.in/courses/']")));
 
             wait.until(ExpectedConditions.elementToBeClickable(courseLink));
             // course click doesn't work - scolls a bit and then stops
@@ -48,8 +51,8 @@ public class WebSiteNav2Test {
             //driver.quit();
            
             js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
-            wait.until(d -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
-            WebElement projectLink = driver.findElement(By.linkText("Projects"));
+            wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
+            WebElement projectLink = driver.findElement(By.cssSelector("a[href='https://tarunsingh.co.in/projects/']"));
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", projectLink);
             wait.until(ExpectedConditions.elementToBeClickable(projectLink));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", projectLink);
@@ -58,7 +61,7 @@ public class WebSiteNav2Test {
             driver.quit();
         }
      
-        public void SiteNavHitProjectsLink() {
+        public void SiteNavHitProjectsLink() throws InterruptedException {
             ChromeOptions options = new ChromeOptions();
 
             options.addArguments(
@@ -77,9 +80,12 @@ public class WebSiteNav2Test {
            // JavascriptExecutor js = (JavascriptExecutor) driver;
            // js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);
             JavascriptExecutor js =  (JavascriptExecutor) driver;
+            for (int i=0;i < 3; i++) {
             js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-            wait.until(d -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
-            WebElement projectLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("Projects")));
+            Thread.sleep(1000);
+            }
+            wait.until(d -> ((JavascriptExecutor) d).executeScript("return document.readyState").equals("complete"));
+            WebElement projectLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href='https://tarunsingh.co.in/projects/']")));
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", projectLink);
             wait.until(ExpectedConditions.elementToBeClickable(projectLink));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", projectLink);
