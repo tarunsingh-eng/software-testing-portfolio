@@ -32,24 +32,23 @@ public class WebSiteNav2Test {
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
             driver.get("https://tarunsingh.co.in");
-            WebElement courseLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[href*='courses']")));
+            WebElement courseLink = driver.findElement(By.linkText("Courses"));
             JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);
-
+            js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
+            
             wait.until(ExpectedConditions.elementToBeClickable(courseLink));
             // course click doesn't work - scolls a bit and then stops
             //better alternative is following command : JavascriptExecutor
+            js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", courseLink);
-            courseLink.click();
             System.out.print("Course Link clicked");
             //courseLink.click();
             //driver.quit();
-            WebElement projectLink = wait.until((ExpectedConditions.presenceOfElementLocated(By.cssSelector(("a[href*='projects']")))));
-            
-            wait.until(ExpectedConditions.elementToBeClickable(projectLink));
+            WebElement projectLink = driver.findElement(By.linkText("Projects"));
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", projectLink);
+            wait.until(ExpectedConditions.elementToBeClickable(projectLink));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", projectLink);
-            projectLink.click();
+           // projectLink.click();
             System.out.println("project link clicked");
             driver.quit();
         }
@@ -72,16 +71,15 @@ public class WebSiteNav2Test {
 
            // JavascriptExecutor js = (JavascriptExecutor) driver;
            // js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);
-
-            
-            WebElement projectLink = wait.until((ExpectedConditions.presenceOfElementLocated(By.cssSelector(("a[href*='projects']")))));
-            
-            wait.until(ExpectedConditions.elementToBeClickable(projectLink));
             JavascriptExecutor js =  (JavascriptExecutor) driver;
+            js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+            
+            WebElement projectLink = wait.until((ExpectedConditions.presenceOfElementLocated(By.linkText("Projects"))));
+            
             js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", projectLink);
-
+            wait.until(ExpectedConditions.elementToBeClickable(projectLink));
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", projectLink);
-            projectLink.click();
+            //projectLink.click();
             System.out.println("project link clicked");
             driver.quit();
         }
