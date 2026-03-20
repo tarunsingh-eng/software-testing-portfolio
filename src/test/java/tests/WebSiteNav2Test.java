@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -58,7 +57,27 @@ public class WebSiteNav2Test {
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", projectLink);
             //projectLink.click();
             System.out.println("project link clicked");
+
+
+
+            js.executeScript("window.scrollBy(0, 3000)");
+            //By coursesLink = By.cssSelector("a[href*='courses']");
+            By coursesLink = By.xpath("//a[normalize-space()='Courses']");
+            WebElement courseLink = driver.findElement(coursesLink);
+
+          //  js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'})", courseLink);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'});", courseLink);
+            System.out.println("course link clicked");
+
+
+
+
             driver.quit();
+
+
+
+
+            
         }
 
 }
