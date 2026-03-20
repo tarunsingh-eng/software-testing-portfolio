@@ -62,7 +62,7 @@ public class WebSiteNav2Test {
 
            // js.executeScript("window.scrollBy(0, 3000)");
             //By coursesLink = By.cssSelector("a[href*='courses']");
-            By coursesLink = By.xpath("(//a[normalize-space()='Courses'])[1]");
+            By coursesLink = By.cssSelector("//a[contains(.,'Courses')]");
             WebElement courseLink = driver.findElement(coursesLink);
 
           //  js.executeScript("arguments[0].scrollIntoView({behavior:'smooth', block:'center'})", courseLink);
