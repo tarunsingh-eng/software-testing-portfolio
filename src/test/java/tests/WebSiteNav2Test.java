@@ -59,9 +59,6 @@ public class WebSiteNav2Test {
             System.out.println("project link clicked");
 
 
-
-           // js.executeScript("window.scrollBy(0, 3000)");
-            //By coursesLink = By.cssSelector("a[href*='courses']");
             driver.quit();
             
         }
