@@ -1,4 +1,9 @@
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class JUnitOrderDemo {
@@ -16,7 +21,7 @@ public class JUnitOrderDemo {
 	void t2() { System.out.println("Test2"); }
 
 	@AfterEach
-	void afterEach() { System.out.println("AfterEach"); }	
+	void afterEach() { System.out.println("After_Each"); }	
 
 	@AfterAll
 	void afterAll() { System.out.println("AfterAll"); } 
