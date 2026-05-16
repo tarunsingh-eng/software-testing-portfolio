@@ -1,4 +1,4 @@
-Feature: Invalid 2 Valid Login
+Feature: Invalid to Valid Login
 
 Scenario: Invalid login
 When user is on login page
