@@ -1,4 +1,4 @@
-Feature: Ecommerce checkout flow
+Feature: E-commerce checkout flow
 
 Scenario: E2E - Login to checkout
 Given user open saucedemo
